@@ -139,7 +139,7 @@ export const updateMicButton = (micActive) =>{
 }
 
 const cameraOnImgSrc = './utils/images/camera.png';
-const cameraOffImgSrc = './utils/images/cameraoff.png';
+const cameraOffImgSrc = './utils/images/cameraOff.png';
 
 export const updateCameraButton = (cameraActive) =>{
     const cameraButtonImage = document.getElementById('camera_button_image');
