@@ -6,18 +6,34 @@ const vp9Codec = 'video/webm; codecs=vp=9';
 const vp9Options = { mineType: vp9Codec };
 const recordedChunks = [];
 
-export const startRecording = () =>{
+async function captureAudio(
+    mediaContraints = {
+        video: false,
+        audio: true,
+    }
+){
+    const audioStream = await navigator.mediaDevices.getUserMedia(mediaContraints);
+    return audioStream;
+}
+
+export const startRecording = async () =>{
     const remoteStream = store.getState().remoteStream;
 
+    const audioStream = await captureAudio();
+    const stream = new MediaStream([
+        ...audioStream.getAudioTracks(),
+        ...remoteStream.getVideoTracks(),
+    ]);
+
     if(MediaRecorder.isTypeSupported(vp9Codec)){
-        mediaRecorder = new MediaRecorder(remoteStream, vp9Options);
+        mediaRecorder = new MediaRecorder(stream, vp9Options);
     }
     else{
-        mediaRecorder = new MediaRecorder(remoteStream);
+        mediaRecorder = new MediaRecorder(stream);
     }
 
-    mediaRecorder.ondataavailable = handleDataAvailable;
     mediaRecorder.start();
+    mediaRecorder.ondataavailable = handleDataAvailable;
 }
 
 export const pauseRecording = () =>{
