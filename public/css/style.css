@@ -493,11 +493,11 @@ button {
     justify-content: center;
   }
   
-  #stop_recording_button {
+  /* #stop_recording_button {
     color: white;
     height: 28px;
   }
-  
+   */
   .display_none {
     display: none;
   }

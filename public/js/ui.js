@@ -165,8 +165,8 @@ export const clearMessenger = () =>{
 
 // recording
 export const showRecordingPanel = () =>{
-    const recordingButtons = document.getElementById('video_recording_buttons');
-    showElement(recordingButtons);
+    const stopRecordingButton = document.getElementById('stop_recording_button');
+    showElement(stopRecordingButton);
 
     // hide start recording button if it is active
     const startRecordingButton = document.getElementById('start_recording_button');
@@ -175,9 +175,9 @@ export const showRecordingPanel = () =>{
 
 export const resetRecordingButtons = () =>{
     const startRecordingButton = document.getElementById('start_recording_button');
-    const recordingButtons = document.getElementById('video_recording_buttons');
+    const stopRecordingButton = document.getElementById('stop_recording_button');
     
-    hideElement(recordingButtons);
+    hideElement(stopRecordingButton);
     showElement(startRecordingButton);
 }
 

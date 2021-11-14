@@ -114,6 +114,7 @@ export const sendPreOffer = (callType, calleePersonalCode) =>{
 
         // console.log('ringtone start2-------------------');
         const ringtoneAudioPlayer = document.getElementById('ringtoneAudioPlayer');
+        ringtoneAudioPlayer.volume = 0.7;
         ringtoneAudioPlayer.play();
     }
 }

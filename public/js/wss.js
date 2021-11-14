@@ -21,6 +21,7 @@ export const registerSocketEvents = (socket) =>{
 
         // console.log('ringtone start--------------------');
         const ringtoneAudioPlayer = document.getElementById('ringtoneAudioPlayer');
+        ringtoneAudioPlayer.volume = 0.7;
         ringtoneAudioPlayer.play();
     });
 
